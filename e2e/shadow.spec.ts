@@ -17,7 +17,7 @@ test.afterAll(async () => {
 
 test('Test Shadow Root',async()=>{
     await page.goto('chrome://downloads/')
-
+    //await page.pause()
     await page.locator('#searchInput').fill("node");
     await page.waitForTimeout(3000)
     //let expLink = await page.getByRole('link').filter({hasText: 'node'}).getAttribute('title')

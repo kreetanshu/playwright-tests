@@ -33,9 +33,10 @@ export default defineConfig({
     },
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    browserName: 'chromium',
-    channel: 'chrome',
-    headless: false,
+    screenshot: 'only-on-failure',
+    //browserName: 'chromium',
+    //channel: 'chrome',
+    headless: false
 
   },
 
@@ -43,14 +44,19 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { //...devices['Desktop Chrome'] 
-            viewport: null, // Disables fixed viewport
+      use: { ...devices['Desktop Chrome'] ,
+            browserName: 'chromium',
+            channel: 'chrome'
       },
     },
 
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: { ...devices['Desktop Firefox'],
+             browserName: 'firefox',
+             channel: 'firefox'
+       },
+    
     },
 
     // {

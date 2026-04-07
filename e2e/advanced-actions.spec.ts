@@ -116,3 +116,17 @@ test('Basic HTTP Auth',async()=>{
     expect(linkText).toContain("Selenium")
     await page.waitForTimeout(2000)
 })
+
+test('File Download', async () => {
+   
+    await page.goto("https://www.leafground.com/file.xhtml")
+    
+    page.on('download', async(download)=>{
+        await download.saveAs('downloads/TestLeaf Logo.png')
+        console.log('Downloaded file saved as:', download.suggestedFilename());
+    })
+    await page.getByText('Download').nth(1).click()
+
+    await page.waitForTimeout(3000);
+})
+
