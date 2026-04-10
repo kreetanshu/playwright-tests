@@ -109,6 +109,8 @@ test('POST API Test - Alternative: using constructor', async ({ request }) => {
   productData.category = 'human';
   productData.image = 'http://example.com/alt-image.jpg';
 
+  console.log(productData)
+
   const response = await request.post('https://fakestoreapi.com/products/', {
     data: serializeRequest(productData)
   });

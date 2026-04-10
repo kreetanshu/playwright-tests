@@ -57,9 +57,11 @@ test('test dropdown',async () =>{
     const optionElements = await page.locator('select#oldSelectMenu option').all();
     
     // Using map() with Promise.all() for concise iteration
-    const actualListItems: string[] = await Promise.all(
-        optionElements.map(option => option.innerText())
-    );
+    // const actualListItems: string[] = await Promise.all(
+    //     optionElements.map(option => option.innerText())
+    // );
+
+    const actualListItems = await page.locator('select#oldSelectMenu option').allInnerTexts();
 
     actualListItems.sort();
 
@@ -68,6 +70,9 @@ test('test dropdown',async () =>{
     await page.locator('select#oldSelectMenu').selectOption('Green')
 
     await page.waitForTimeout(3000)
+
+    //const optionsElements2 = await page.locator('select#oldSelectMenu option').allInnerTexts();
+
 })
 
 test('test multiselect',async () =>{

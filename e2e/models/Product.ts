@@ -19,6 +19,10 @@ export class Product {
       Object.assign(this, data);
     }
   }
+
+  toString(): string {
+     return `Product(id: ${this.id}, title: ${this.title}, price: $${this.price}, category: ${this.category})`;
+  }
 }
 
 export interface IProduct {

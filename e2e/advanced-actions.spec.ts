@@ -81,6 +81,7 @@ test('Single Window Popups', async () => {
 
 })
 
+//Not a good approch, use insteas BrowserContext.pages()
 test('Multiple Window Popups', async () => {
     await page.goto("https://www.leafground.com/window.xhtml")
 

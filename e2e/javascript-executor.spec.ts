@@ -43,7 +43,7 @@ test('Browser context',async()=>{
     for(const popup of pages){
         await popup.waitForLoadState();
         console.log(await popup.title());
-        //await popup.close()
+        await popup.close()
     }
 })
 
