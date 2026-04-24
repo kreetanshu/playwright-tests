@@ -34,3 +34,30 @@ test('webtable test', async()=>{
     expect(tableList.at(0)?.at(0)).toContain("Adani")
 
 })
+
+test('webtable test 2', async()=>{
+    await page.goto("https://money.rediff.com/indices/bse/snsx50");
+    const rows = await page.locator("table.dataTable tbody tr").all();
+    //console.log(rows)
+
+    let tableList: string [][] = [];
+    let tableCells: string[] = [];
+
+    for(const row of rows){
+        const cells = await row.locator('td').all();
+        
+        tableCells = [];
+
+        for(const cell of cells){
+            const cellText = await cell.innerText();
+            tableCells.push(cellText);
+        }
+        tableList.push(tableCells);
+    }
+
+    console.log(tableList)
+    console.log(tableList.at(0)?.at(0))
+
+    expect(tableList.at(0)?.at(0)).toContain("Adani")
+
+})

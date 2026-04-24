@@ -14,6 +14,11 @@ test('GET API Test', async ({ request }) => {
     console.log(responseHeader.find(p => p.name === 'Date')?.value)
     expect(todayDate.toDateString()).toBe(apidate.toDateString())
 
+    const responseBody = await response.json();
+    console.log(responseBody)
+    console.log(responseBody.name)
+
+
 })
 
 test('Post API Test', async ({ request }) => {

@@ -114,6 +114,7 @@ test('Basic HTTP Auth',async()=>{
     page= await context.newPage();
     await page.goto("https://the-internet.herokuapp.com/basic_auth")
     const linkText = await page.getByRole('link').filter({hasText: 'Selenium'}).innerText()
+    
     expect(linkText).toContain("Selenium")
     await page.waitForTimeout(2000)
 })
